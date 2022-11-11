@@ -7,10 +7,10 @@
 /**
  * Start Phaser game
  */
-import SplashScene from'./splashScene.js'
+import SplashScene from "./splashScene.js";
 
 //Game Scene
-const splashScene = new SplashScene()
+const splashScene = new SplashScene();
 
 const config = {
   type: Phaser.AUTO,
@@ -34,7 +34,7 @@ const config = {
 const game = new Phaser.Game(config);
 // load scenes
 // Note: Any "key" is global and can't be reused
-game.scene.add('splashScene',splashScene)
+game.scene.add("splashScene", splashScene);
 
 // game start
-game.scene.start('splashScene')
+game.scene.start("splashScene");
