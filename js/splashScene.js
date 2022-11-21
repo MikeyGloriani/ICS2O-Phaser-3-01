@@ -14,10 +14,15 @@ class SplashScene extends Phaser.Scene {
   }
 
   preload() {
-    console.log("Splash Scene");
+    console.log("Splash Scene")
+    this.preload.image('splashSceneBackground', './assets/splahSceneImage.png')
   }
 
-  create(data) {}
+  create(data) {
+    this.splasSceneBackgroundImage = this.add.sprite(0,0, 'splashSceneBackground')
+    this.splasSceneBackgroundImage.x = 1920 / 2
+    this.splasSceneBackgroundImage.y = 1080 / 2
+  }
 
   update(time, delta) {
     this.scene.switch("titleScene");
