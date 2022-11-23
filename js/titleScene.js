@@ -6,20 +6,30 @@
 
 class TitleScene extends Phaser.Scene {
   constructor() {
-    super({ key: "titleScene" });
+    super({ key: "titleScene" })
+
+    this.titleSceneBackgroundImage = null
   }
 
   init(data) {
-    this.cameras.main.setBackgroundColor("#ffffff");
+    this.cameras.main.setBackgroundColor("#ffffff")
   }
 
   preload() {
-    console.log("Title Scene");
+    console.log("Title Scene")
+    this.load.image('titleSceneBackground', 'assets/aliens_screen_image.jpg')
   }
 
-  create(data) {}
+  create(data) {    
+    this.titleSceneBackgroundImage = this.add.sprite(
+    0,
+    0,
+    "titleSceneBackground"
+  ).setScale(2.75)
+  this.titleSceneBackgroundImage.x = 1920 / 2
+  this.titleSceneBackgroundImage.y = 1080 / 2}
 
   update(time, delta) {}
 }
 
-export default TitleScene;
+export default TitleScene
