@@ -7,16 +7,16 @@
 /**
  * Start Phaser game
  */
-import SplashScene from "./splashScene.js";
-import TitleScene from "./titleScene.js";
-import MenuScene from "./menuScene.js";
-import GameScene from "./gameScene.js";
+import SplashScene from "./splashScene.js"
+import TitleScene from "./titleScene.js"
+import MenuScene from "./menuScene.js"
+import GameScene from "./gameScene.js"
 
 //Game Scenes
-const splashScene = new SplashScene();
-const titleScene = new TitleScene();
-const menuScene = new MenuScene();
-const gameScene = new GameScene();
+const splashScene = new SplashScene()
+const titleScene = new TitleScene()
+const menuScene = new MenuScene()
+const gameScene = new GameScene()
 
 const config = {
   type: Phaser.AUTO,
@@ -35,15 +35,15 @@ const config = {
     // Center placement
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-};
+}
 
-const game = new Phaser.Game(config);
+const game = new Phaser.Game(config)
 // load scene
 // Note: Any "key" is global and can't be reused
-game.scene.add("splashScene", splashScene);
-game.scene.add("titleScene", titleScene);
-game.scene.add("menuScene", menuScene);
-game.scene.add("gameScene", gameScene);
+game.scene.add("splashScene", splashScene)
+game.scene.add("titleScene", titleScene)
+game.scene.add("menuScene", menuScene)
+game.scene.add("gameScene", gameScene)
 
 // game start
-game.scene.start("splashScene");
+game.scene.start("splashScene")
