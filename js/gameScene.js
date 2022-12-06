@@ -10,6 +10,7 @@ class GameScene extends Phaser.Scene {
 
     this.background = null;
     this.ship = null;
+    this.fireMissile = false
   }
 
   init(data) {
@@ -38,6 +39,7 @@ class GameScene extends Phaser.Scene {
 
     const keyLeftObj = this.input.keyboard.addKey("LEFT");
     const keyRightObj = this.input.keyboard.addKey("RIGHT");
+    const keySpaceObj = this.input.keyboard.addKey("SPACE");
 
     if (keyLeftObj.isDown === true) {
       this.ship.x = this.ship.x - 15;
@@ -51,7 +53,18 @@ class GameScene extends Phaser.Scene {
         this.ship.x = 0;
       }
     }
+    if (keySpaceObj.isDown === true) {
+      if (this.fireMissile === true) {
+        // fire missile
+        this.fireMissile = true
+        const aNewMissile = this.physics.add.sprite(this.ship.x, this.ship.y, 'missile')
+        this.missileGroup.add(aNewMissile)
+      }
+    }
+    if (keySpaceObj.isUp === true) {
+      if (this.fireMissile === false) {
+      }
+    }
   }
 }
-
-export default GameScene;
+export default GameScene
