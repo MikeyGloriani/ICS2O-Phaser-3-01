@@ -31,6 +31,8 @@ class GameScene extends Phaser.Scene {
     this.background.setOrigin(0, 0);
 
     this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, "ship");
+
+    //missile group
     this.missileGroup = this.physics.add.group();
   }
 
@@ -54,20 +56,15 @@ class GameScene extends Phaser.Scene {
       }
     }
     if (keySpaceObj.isDown === true) {
-      if (this.fireMissile === true) {
+      if (this.fireMissile === false) {
         // fire missile
-        this.fireMissile = true;
-        const aNewMissile = this.physics.add.sprite(
-          this.ship.x,
-          this.ship.y,
-          "missile"
-        );
-        this.missileGroup.add(aNewMissile);
+        this.fireMissile =  true
+        const aNewMissile = this.physics.add.sprite(this.ship.x,this.ship.y,"missile")
+        this.missileGroup.add(aNewMissile)
       }
     }
     if (keySpaceObj.isUp === true) {
-      if (this.fireMissile === false) {
-      }
+      this.fireMissile = false
     }
   }
 }
