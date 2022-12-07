@@ -74,7 +74,7 @@ class GameScene extends Phaser.Scene {
       this.fireMissile = false;
     }
     this.missileGroup.children.each(function (item) {
-      item.y = iteam.y - 45;
+      item.y = item.y - 15;
       if (item.y < 0) {
         item.destroy();
       }
