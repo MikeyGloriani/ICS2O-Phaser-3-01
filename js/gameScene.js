@@ -5,16 +5,15 @@
 // This is the Game scene
 
 class GameScene extends Phaser.Scene {
-
   // create alien
-  createAlien () {
-    const alienXLocation = Math.floor(Math.random()*1920) + 1 // gets a number between 1 and 1920
-    let alienXVelocity = Math.floor(Math.random() * 50) + 1 // gets a number between 1 and 50
-    alienXVelocity *= Math.round(Math.random ()) ? 1 : -1
-    const anAlien = this.physics.add.sprite(alienXLocation, 100, 'alien')
-    anAlien.body.velocity.y = 200
-    anAlien.body.velocity.y = alienXVelocity
-    this.alienGroup.add(anAlien)
+  createAlien() {
+    const alienXLocation = Math.floor(Math.random() * 1920) + 1; // gets a number between 1 and 1920
+    let alienXVelocity = Math.floor(Math.random() * 50) + 1; // gets a number between 1 and 50
+    alienXVelocity *= Math.round(Math.random()) ? 1 : -1;
+    const anAlien = this.physics.add.sprite(alienXLocation, 100, "alien");
+    anAlien.body.velocity.y = 200;
+    anAlien.body.velocity.y = alienXVelocity;
+    this.alienGroup.add(anAlien);
   }
 
   constructor() {
@@ -36,7 +35,7 @@ class GameScene extends Phaser.Scene {
     this.load.image("starBackground", "assets/starBackground.png");
     this.load.image("ship", "assets/spaceShip.png");
     this.load.image("missile", "assets/missile.png");
-    this.load.image('alien', 'assets/alien.png')
+    this.load.image("alien", "assets/alien.png");
     //sound
     this.load.audio("laser", "assets/laser1.wav");
   }
@@ -52,7 +51,7 @@ class GameScene extends Phaser.Scene {
 
     // alien groups
     this.alienGroup = this.add.group();
-    this.createAlien()
+    this.createAlien();
   }
 
   update(time, delta) {
