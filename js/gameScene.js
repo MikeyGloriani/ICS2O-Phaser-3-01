@@ -66,7 +66,7 @@ class GameScene extends Phaser.Scene {
         alienCollide.destroy();
         missileCollide.destroy();
         this.score = this.score + 1
-        this.scoreText.setText('Score: + this.score.toString())
+        this.scoreText.setText('Score:' + this.score.toString())
         this.sound.play("explosion");
         this.createAlien();
         this.createAlien();
