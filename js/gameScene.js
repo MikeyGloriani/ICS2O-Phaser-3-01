@@ -29,8 +29,12 @@ class GameScene extends Phaser.Scene {
       fill: "#ffffff",
       align: "center",
     };
-    this.gameOverText = null
-    this.gameOverText = { font: '65px Arial', fill: '#ff0000', align: 'center'}
+    this.gameOverText = null;
+    this.gameOverText = {
+      font: "65px Arial",
+      fill: "#ff0000",
+      align: "center",
+    };
   }
 
   init(data) {
@@ -81,18 +85,32 @@ class GameScene extends Phaser.Scene {
         this.sound.play("explosion");
         this.createAlien();
         this.createAlien();
-      }.bind(this))
-      
-      // Collisions between ships and aliens
-      this.physics.add.collider(this.ship, this.alienGroup, function(shipCollide, alienCollide) {
-        this.sound.play('bomb')
-        this.physics.pause()
-        alienCollide.destroy()
-        shipCollide.destroy()
-        this.gameOverText = this.add.text(1920 / 2, 1080 / 2, 'Game Over! \nClick to play again.', this.gameOverTextStyle).setOrigin(0.5)
-        this.gameOverText.setInteractive({ useHandCursor: true })
-        this.gameOverText.on('pointerdown', () => this.scene.start('gameScene'))
-      }.bind(this)) 
+      }.bind(this)
+    );
+
+    // Collisions between ships and aliens
+    this.physics.add.collider(
+      this.ship,
+      this.alienGroup,
+      function (shipCollide, alienCollide) {
+        this.sound.play("bomb");
+        this.physics.pause();
+        alienCollide.destroy();
+        shipCollide.destroy();
+        this.gameOverText = this.add
+          .text(
+            1920 / 2,
+            1080 / 2,
+            "Game Over! \nClick to play again.",
+            this.gameOverTextStyle
+          )
+          .setOrigin(0.5);
+        this.gameOverText.setInteractive({ useHandCursor: true });
+        this.gameOverText.on("pointerdown", () =>
+          this.scene.start("gameScene")
+        );
+      }.bind(this)
+    );
   }
 
   update(time, delta) {
