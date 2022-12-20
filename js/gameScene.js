@@ -8,9 +8,9 @@ class GameScene extends Phaser.Scene {
   // create alien
   createAlien() {
     const alienXLocation = Math.floor(Math.random() * 1920) + 1; // gets a number between 1 and 1920
-    let alienXVelocity = Math.floor(Math.random() * 50) + 1; // gets a number between 1 and 50
-    alienXVelocity *= Math.round(Math.random()) ? 1 : -1;
-    const anAlien = this.physics.add.sprite(alienXLocation, -10, "alien");
+    let alienXVelocity = Math.floor(Math.random() * 150) + 50; // gets a number between 1 and 50
+    alienXVelocity *= Math.round(Math.random()) ? 1 : 1;
+    const anAlien = this.physics.add.sprite(alienXLocation, -100, "alien");
     anAlien.body.velocity.y = 200;
     anAlien.body.velocity.y = alienXVelocity;
     this.alienGroup.add(anAlien);
@@ -30,7 +30,7 @@ class GameScene extends Phaser.Scene {
       align: "center",
     };
     this.gameOverText = null;
-    this.gameOverText = {
+    this.gameOverTextStyle = {
       font: "65px Arial",
       fill: "#ff0000",
       align: "center",
